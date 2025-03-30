@@ -54,27 +54,25 @@ const WeatherCard = ({
     }, []);
 
     return (
-        <div className="w-[22rem] min-w-[22rem] h-[30rem] glassCard p-4">
-            <div className="flex w-full justify-center items-center gap-4 mt-12 mb-4">
-                <img src={icon} alt="weather_icon" />
-                <p className="font-bold text-5xl flex justify-center items-center">
+        <div className="w-full max-w-[22rem] min-w-[18rem] h-auto md:h-[30rem] glassCard p-4 mx-auto md:mx-0">
+
+            <div className="flex flex-col sm:flex-row w-full justify-center items-center gap-4 mt-6 mb-4">
+                <img src={icon} alt="weather_icon" className='w-20 h-20 sm:w-24 sm:h-24'/>
+                <p className="font-bold text-4xl sm:text-5xl">
                     {temperature}&deg;C
                 </p>
             </div>
 
-            <div className="font-bold text-center text-xl">{place}</div>
+            <div className="font-bold text-center text-lg sm:text-xl">{place}</div>
+            
+                <div className="w-full flex flex-col sm:flex-row justify-between items-center mt-4 text-sm sm:text-base">
 
-            <div>
-                <div className="w-full flex justify-between items-center mt-4">
-                    <p className="flex-1 text-center p-2">
-                        {currentTime.toDateString()}
-                    </p>
-                    <p className="flex-1 text-center p-2">
-                        {currentTime.toLocaleTimeString()}
-                    </p>
+                    <p className="flex-1 text-center p-2"> {currentTime.toDateString()} </p>
+                    <p className="flex-1 text-center p-2"> {currentTime.toLocaleTimeString()} </p>
+
                 </div>
 
-                <div className="w-full flex justify-between items-center mt-4 gap-4">
+                <div className="w-full flex flex-col sm:flex-row justify-between items-center mt-4 gap-4">
                     <p className="flex-1 text-center p-2 font-bold bg-blue-600 shadow rounded-lg">
                         Wind Speed <span className="font-normal">{windspeed}</span>
                     </p>
@@ -83,16 +81,17 @@ const WeatherCard = ({
                     </p>
                 </div>
 
-                <div className="w-full p-3 mt-4 flex justify-between items-center">
-                    <p className="font-semibold text-lg">Heat Index </p>
+                <div className="w-full p-3 mt-4 flex justify-between items-center text-sm sm:text-lg">
+                    <p className="font-semibold ">Heat Index </p>
                     <p className="text-lg">{heatIndex ? heatIndex : 'N/A'}</p>
                 </div>
-                <hr className="bg-slate-600" />
-                <div className="w-full p-4 flex justify-center items-center text-3xl font-semibold">
+
+                <hr className="bg-slate-600 my-2" />
+                <div className="w-full p-4 flex justify-center items-center text-xl sm:text-3xl font-semibold">
                     {conditions}
                 </div>
             </div>
-        </div>
+               
     );
 };
 

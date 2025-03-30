@@ -20,11 +20,12 @@ function App() {
     };
 
     return (
-        <div className="w-full h-screen text-white px-8">
-            <nav className="w-full p-3 flex justify-between items-center">
-                <h1 className="font-bold tracking-wide text-3xl">Weather App</h1>
+        <div className="w-full min-h-screen text-white px-4 sm:px-8">
 
-                <div className="bg-white w-[15rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2">
+            <nav className="w-full p-3 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <h1 className="font-bold tracking-wide text-2xl sm:text-3xl text-center sm:text-left">Weather App</h1>
+
+                <div className="bg-white w-full sm:w-[15rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2">
                     <img src={search} alt="search" className="w-[1.5rem] h-[1.5rem]" />
 
                     <input
@@ -35,7 +36,7 @@ function App() {
                         }}
                         type="text"
                         placeholder="Search city"
-                        className="focus:outline-none w-full text-[#212121] text-large"
+                        className="focus:outline-none w-full text-[#212121] text-base"
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                     />
@@ -44,7 +45,8 @@ function App() {
 
             <BackgroundLayout></BackgroundLayout>
 
-            <main className="w-full flex flex-wrap gap-8 py-4 px-[10%] items-center justify-center">
+            <main className="w-full flex flex-col md:flex-row py-4 px-6 md:px-[10%] items-center md:items-start justify-between gap-6">
+              <div className="w-full md:w-[45%] flex justify-center md:justify-start">
                 <WeatherCard
                     place={thisLocation}
                     windspeed={weather.wspd}
@@ -54,8 +56,9 @@ function App() {
                     iconString={weather.conditions}
                     conditions={weather.conditions}
                 />
+                </div>
 
-                <div className="flex justify-center gap-8 flex-wrap w-[60%]">
+                <div className="w-full md:w-[50%] flex flex-wrap gap-4 justify-center md:justify-end">
                     {values?.slice(1, 7).map((curr) => {
                         return (
                             <MiniCard

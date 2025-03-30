@@ -36,16 +36,18 @@ const MiniCard = ({time, temp, iconString}) => {
     },[iconString]);
 
   return (
-    <div className='glassCard w-[10rem] h-[10rem] p-4 flex flex-col '>
-        <p className='text-center'>
+    <div className='glassCard w-full max-w-[10rem] h-auto sm:h-[10rem] p-4 flex flex-col items-center'>
+
+        <p className='text-center text-sm sm:text-base font-medium'>
             {new Date(time).toLocaleTimeString('en',{weekday:'long'}).split(" ")[0]}
         </p>
 
-        <hr />
+        <hr className='w-full my-1 sm:my-2'/>
+
         <div className='w-full flex justify-center items-center flex-1'>
-            <img src={icon} alt="weather" className='w-[4rem] h-[4rem]'/>
+            <img src={icon} alt="weather" className='w-12 h-12 sm:w-16 sm:h-16'/>
         </div>
-        <p className=' text-center font-bold'>{temp}&deg;C</p>
+        <p className='text-center font-bold text-lg sm:text-xl'>{temp}&deg;C</p>
     </div>
   );
 };
