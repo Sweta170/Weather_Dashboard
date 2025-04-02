@@ -10,6 +10,7 @@ export const StateContextProvider = ({ children }) => {
     const [thisLocation, setLocation] = useState("");
 
     // Fetch weather data
+    
     const fetchWeather = async () => {
         if (!place || place.trim() === "") {
             alert("Please enter a valid location.");
